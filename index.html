@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Pairs Game</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #container{
+            display: flex;
+            flex-flow: column;
+            width: 95%;
+            height: 90%;
+            background-color:rgb(153, 150, 150);
+            margin:auto;
+            color: white;
+        }
+
+        #header{
+            padding:20px;
+            text-align: center;
+        }
+
+        #header>h1{
+            margin-bottom: 10px;
+            color:black;
+        }
+
+        #header>p{
+            line-height: 30px;
+            margin-bottom: 10px;
+            color:black;
+            font-size: large;
+        }
+
+        #dashBorad{
+
+            margin-top: 20px;
+        }
+
+        .dashBoardComp{
+
+            display: inline-block;
+            border-radius: 5px;
+            padding: 10px;
+            width: fit-content;
+            background-color:springgreen;
+            font-weight: 800;
+            box-shadow: 1px 1px 3px;
+            text-align: center;
+            margin-right: 20px;
+            font-size: large; 
+            color: black;          
+        }
+
+        #cardBoard{
+
+            padding-top: 5px; 
+            position: relative;
+            top: 20px;
+            width: 55%;
+            height: 50%;
+            margin: 0 auto;
+            box-shadow: 1px 1px 5px; 
+        }
+
+        #cardBoard>span{
+            
+            display: block;
+            margin:  0 auto;
+            font-size: large;
+            font-weight: 800;
+            text-align: center;
+        }
+
+        #cardContainer{
+            box-sizing: border-box;
+            margin: 1rem auto;
+            height: 80%;
+            width: 80%;
+            padding: 0.5rem;
+            display: grid;
+            grid-template-rows:80px 80px;
+            grid-gap: 1.2rem;
+            justify-content: space-around; 
+            align-content:center;      
+        }
+
+        .cards{
+
+            background-color: white;
+            color: black;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 2rem;
+            font-weight: 900;
+            box-shadow: 2px 2px 7px;
+            -ms-transform: rotateY(180deg);
+             transform: rotateY(180deg);
+        }
+
+        .cards>p{
+            text-align: center;
+            margin: 0 auto;
+            color:navy;
+            opacity: 0;
+        }
+
+        .slide{
+            animation: rotate 1s ease forwards;
+        }
+
+        @keyframes rotate {
+
+            from{
+                transform:rotateY(180deg);
+            }
+
+            to{
+                transform: rotateY(0);
+            }
+            
+        }
+
+        .newSlide{
+            animation: newrotate 1s 0.5s  ease forwards
+        }
+
+        @keyframes newrotate {
+
+        from{
+            transform:rotateY(180deg);
+        }
+
+        to{
+            transform: rotateY(0);
+        }
+
+        }
+
+        /* @media (max-width:700px) {
+
+            #container{
+                padding: 10px;
+                width: fit-content;
+                height: fit-content;
+            }
+
+            #cardContainer{
+                padding-top: 80px;
+                grid-template-rows:repeat(4,80px);
+                grid-template-columns: repeat(3,80px);
+                /* background-color: tomato;       
+             }
+            
+        }  */
+
+
+
+
+
+    </style>
+
+</head>
+
+<body>
+
+    <div id="container">
+
+        <div id="header">
+
+            <h1>Your Card Guessing Game</h1>
+            <p>Flip one card on each row,<br> guess two maching cards within the stipulated time.</p>
+
+            <div id="dashBorad">
+
+                <span class="dashBoardComp" id="timer"></span>
+               
+                <span class="dashBoardComp" id="scoresCounter"></span>               
+
+            </div>
+
+        </div>
+    
+        <div id="cardBoard">
+
+            <span id="levelIndicator"></span>
+
+            <div id="cardContainer"></div>
+
+        </div>
+
+    </div>
+    
+</body>
+
+    <script src="index.js"></script>
+
+</html>
